@@ -1,0 +1,139 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+#include <math.h>
+using namespace std;
+int main()
+{
+	for(;;){
+ float c,b,e;
+ int a;
+ poczatek:
+ cout << "[1]DODAWANIE" << endl;
+ cout << "[2]ODEJMOWANIE" << endl;
+ cout << "[3]MNOZENIE" <<endl;
+ cout << "[4]DZIELENIE" <<endl;
+ cout << "[5]REZYGNUJ" <<endl;
+ cin >> a;
+
+
+
+ switch (a)
+ {
+ case 1:
+	cin.clear();
+	cin.ignore(INT_MAX,'\n');
+	  	cout << "Podaj Pierwsza liczbe"<<endl;
+		cin >> b;
+		cout <<"Podaj druga liczbe" <<endl;
+		cin >> c;
+		system("cls");
+		if (cin.fail())
+		{
+			goto poczatek ;
+		}
+		else
+			
+		cout << endl << "WYNIK DODAWANIA "<< b <<"+"<<c <<"=" << b+c << endl << endl <<"----------------------------------" <<endl;
+	 cout << "KLIKNIJ ENTER ABY KONTYNUOWAC" <<endl;
+	 getch() ;
+	 system("cls");
+		
+			
+	  
+ break;
+
+
+ case 2: 
+	cin.clear();
+	cin.ignore(INT_MAX,'\n');
+	  	cout << "Podaj Pierwsza liczbe"<<endl;
+		cin >> b;
+		cout <<"Podaj druga liczbe" <<endl;
+		cin >> c;
+		system("cls");
+				if (cin.fail())
+		{
+			goto poczatek ;
+		}
+		else
+	 cout << endl << "WYNIK ODEJMOWANIA "<< b <<"-"<<c <<"=" << b-c << endl << endl<<"----------------------------------" <<endl;
+	 cout << "KLIKNIJ ENTER ABY KONTYNUOWAC" <<endl;
+	 getch() ;
+	 system("cls");
+ break;
+
+
+ case 3:
+	cin.clear();
+	cin.ignore(INT_MAX,'\n');
+	  	cout << "Podaj Pierwsza liczbe"<<endl;
+		cin >> b;
+		cout <<"Podaj druga liczbe" <<endl;
+		cin >> c;
+		system("cls");
+				if (cin.fail())
+		{
+			goto poczatek ;
+		}
+		else
+	 cout << endl << "WYNIK MNOZENIA "<< b <<"*"<<c <<"=" << b*c << endl << endl<<"----------------------------------" <<endl;
+	 cout << "KLIKNIJ ENTER ABY KONTYNUOWAC" <<endl;
+	 getch() ;
+	 system("cls");
+				
+break;
+
+
+ case 4:
+cin.clear();
+cin.ignore(INT_MAX,'\n');
+	  	cout << "Podaj Pierwsza liczbe"<<endl;
+		cin >> b;
+		cout <<"Podaj druga liczbe" <<endl;
+		cin >> c;
+if (c!=0)
+	{
+		system("cls");
+				if (cin.fail())
+		{
+			goto poczatek ;
+		}
+		else
+	 cout << endl << "WYNIK DZIELENIA " << b <<"/"<<c <<"="  << b/c << endl << endl<<"----------------------------------" <<endl;
+	 cout << "KLIKNIJ ENTER ABY KONTYNUOWAC" <<endl;
+	 getch() ;
+	 system("cls");
+
+	}
+     else
+	 {
+		 system("cls");
+		cout <<endl<<"NIE DZIEL PRZEZ 0!!" <<endl<<"----------------------------------" <<endl;
+	cout << "KLIKNIJ ENTER ABY KONTYNUOWAC" <<endl;
+	 getch() ;
+	 system("cls");
+	}
+	 break;
+
+
+ case 5:
+
+	 return 0;
+	 break;
+
+default:
+	cin.clear();
+	cin.ignore(INT_MAX,'\n');
+	system("cls");
+	cout <<endl<<"Nieprawidlowe polecenie." <<endl<<"----------------------------------" <<endl;
+		 cout << "KLIKNIJ ENTER ABY KONTYNUOWAC" <<endl;
+	 getch() ;
+	 system("cls");
+
+ }}
+	
+ system ("pause");
+
+ return 0;
+}
