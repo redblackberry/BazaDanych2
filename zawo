@@ -1,0 +1,311 @@
+#include <iostream>
+#include <conio.h>
+#include <math.h>
+#include <stdlib.h>
+using namespace std;
+int main()
+{
+	for (;;)
+	{
+		poczatek:
+	int mozliwosc;
+
+	//WYBOR CO POLICZYC
+	cout <<"!!!Uzywaj kropki zamiast przecinka!!!"<<endl;
+	cout<<"WYBIERZ LICZBE, A NASTEPNIE WSCISNIJ ENTER"<<endl<<"===================================================="<<endl;
+	cout<<"WYLICZ:"<<endl;
+	cout <<"[1] Dobor instalacji fotowoltaicznej"<<endl;
+	cout <<"[2] Liczba paneli na dachu"<<endl;
+	cout <<"[3] Sprawnosc modulow"<<endl;
+	cout <<"[4] Moc jednostkowa kolektora plaskiego"<<endl;
+	cout <<"[5] Wykorzystanie wzoru Q=m*cp*dT"<<endl;
+
+	cin >> mozliwosc;
+	system("cls");
+	//KONIEC WYBORU CO POLICZYC
+	switch (mozliwosc)
+	{
+//KALKULATOR MOCY W DOMU
+case (1):
+	//zmienne
+	double  b,c,d,e,g,i,h,kosztt,koszt;
+	double a,f;
+	//koniec zmiennych
+cout << "Podaj zuzycie energii na rok [kWh]"<<endl;
+cin >> a;
+cout << "Podaj cene jednej kilowatogodziny [grosze]"<<endl;
+cin >> kosztt;
+koszt=kosztt/100;
+system("cls");
+cout <<"================================"<<endl;
+cout << "DLA BIEZACEJ KONSUMPCJI 30%"<<endl ;
+cout <<"================================"<<endl;
+cout << "Zuzycie energii w budynku na rok: " <<a<<" [kWh]"<<endl;
+b=1.25*a;
+cout << "Produkcja energii przez instalacje PV na rok: "<<b<<" [kWh]"<<endl ;
+c=0.3*a;
+cout << "Biezaca konsumpcja: "<<c<<" [kWh]"<<endl;
+d=b-c;
+cout << "Energia oddana do sieci: "<<d<<" [kWh]"<<endl ;
+if(a<=8000)
+{
+cout << "Opust: "<<0.8*d<<" [kWh]"<<endl ;
+f=a-c-0.8*d;
+}
+else
+{
+cout << "Opust: "<<0.7*d<<" [kWh]"<<endl ;
+f=a-c-0.7*d;
+}
+if(f<0)
+{
+cout << "Zakup energii: "<<"0"<<" [kWh]"<<endl ;
+g=koszt*a;
+cout << "Rachunek za prad przed montazem: "<<g<<" [zl]"<<endl ;
+h=koszt*f;
+cout << "Rachunek za prad po montazu: "<<"0"<<" [zl]"<<endl ;
+i=g-h;
+cout << "oszczednosc: "<<g<<" [zl]"<<endl ;
+}
+else
+{
+cout << "Zakup energii: "<<f<<" [kWh]"<<endl ;
+g=koszt*a;
+cout << "Rachunek za prad przed montazem: "<<g<<" [zl]"<<endl ;
+h=koszt*f;
+cout << "Rachunek za prad po montazu: "<<h<<" [zl]"<<endl ;
+i=g-h;
+cout << "oszczednosc: "<<i<<" [zl]"<<endl ;
+}
+
+
+cout <<"================================"<<endl;
+cout << "DLA BIEZACEJ KONSUMPCJI 20%"<<endl ;
+cout <<"================================"<<endl;
+cout << "Zuzycie energii w budynku na rok: " <<a<<" [kWh]"<<endl;
+b=1.25*a;
+cout << "Produkcja energii przez instalacje PV na rok: "<<b<<" [kWh]"<<endl ;
+c=0.2*a;
+cout << "Biezaca konsumpcja: "<<c<<" [kWh]"<<endl;
+d=b-c;
+cout << "Energia oddana do sieci: "<<d<<" [kWh]"<<endl ;
+if(a<=8000)
+{
+cout << "Opust: "<<0.8*d<<" [kWh]"<<endl ;
+f=a-c-0.8*d;
+}
+else
+{
+cout << "Opust: "<<0.7*d<<" [kWh]"<<endl ;
+f=a-c-0.7*d;
+}
+if(f<0)
+{
+cout << "Zakup energii: "<<"0"<<" [kWh]"<<endl ;
+g=koszt*a;
+cout << "Rachunek za prad przed montazem: "<<g<<" [zl]"<<endl ;
+h=koszt*f;
+cout << "Rachunek za prad po montazu: "<<"0"<<" [zl]"<<endl ;
+i=g-h;
+cout << "oszczednosc: "<<g<<" [zl]"<<endl ;
+}
+else
+{
+cout << "Zakup energii: "<<f<<" [kWh]"<<endl ;
+g=koszt*a;
+cout << "Rachunek za prad przed montazem: "<<g<<" [zl]"<<endl ;
+h=koszt*f;
+cout << "Rachunek za prad po montazu: "<<h<<" [zl]"<<endl ;
+i=g-h;
+cout << "oszczednosc: "<<i<<" [zl]"<<endl ;
+break;
+}
+//KONIEC KALKULATORA MOCY W DOMU
+
+//POCZATEK LICZBA PANELI NA DACHU
+case (2):
+//ZMIENNE
+double chlebek1,chlebek;
+double pow_h1,panel_h1,szer_pow1,szer_panel1;
+double pow_h,panel_h,szer_pow,szer_panel;
+//KONIEC ZMIENNYCH
+	cout << "[CM]Podaj wysokosc powierzchni "<<endl;
+	cout<<"na ktorej montowane beda panele "; cin>>pow_h1;
+	pow_h=pow_h1/100;
+	cout <<endl<< "[CM]Podaj wysokosc panelu: "; cin >> panel_h1;
+	panel_h=panel_h1/100;
+	cout<<endl<<"[CM]Podaj szerokosc powierzchni "<<endl;
+		cout<< "na ktorej montowane beda panele: ";cin>>szer_pow1;
+	szer_pow=szer_pow1/100;
+	cout<<endl<<"[CM]Podaj szerokosc panelu: ";cin>>szer_panel1;
+	szer_panel=szer_panel1/100;
+	system("cls");
+	chlebek=pow_h/(panel_h+0.025);
+	chlebek1=szer_pow/(szer_panel+0.025);
+	cout <<"Liczba paneli w szeregu: " <<floor (chlebek) <<endl;
+	cout <<"Liczba paneli w poziomie: " <<floor (chlebek1) <<endl;
+	cout<<"Ogolna liczba paneli: "<<floor (chlebek)*floor (chlebek1)<<endl<<endl;
+	cout <<"kliknij enter aby kontynuowac....";
+	getch();
+	system("cls");
+	break;
+case (3):
+	//ZMIENNE
+	double moc,napiecie,promieniowanie,pole,wp,pole1;
+	//KONIEC ZMIENNYCH
+	cout<<"Podaj moc modulu(Jezeli nie wiesz wpisz 0)[Wp]: ";
+	cin>>wp;
+	cout<<endl;
+	if(wp<1)
+	{
+
+	cout<<"Podaj natezenie modulu[A]: ";cin>>moc;cout<<endl;
+	cout<<"Podaj napiecie modulu[V]: ";cin>>napiecie;cout<<endl;
+	cout<<"Podaj pole powierzchni[m^2]: ";cin>>promieniowanie;cout<<endl;
+	cout<<"Podaj natezenie promieniowania slonecznego[W/m^2]: ";cin>>pole1;cout<<endl;
+	pole=pole1/100;
+	system("cls");
+	cout<<"Sprawnosc: "<<((moc*napiecie)/(promieniowanie*pole))<<"%";
+	}
+	else
+	{
+	cout<<"Podaj pole powierzchni[m^2]: ";cin>>promieniowanie;cout<<endl;
+	cout<<"Podaj natezenie promieniowania slonecznego[w/m^2]: ";cin>>pole1;cout<<endl;
+	pole=pole1/100;
+	system("cls");
+	cout<<"Sprawnosc: "<<(wp/(promieniowanie*pole))<<"%";
+	}
+	getch();
+	system("cls");
+	break;
+	//KONIEC SPRAWNOSCI MODULOW
+case (4):
+	//ZMIENNE
+	double s,no,me,k1,k2,t,no1,t1;
+	//KONIEC ZMIENNYCH
+	cout <<"Podaj powierzchnie kolektora[m^2]: ";
+	cin>>s;
+	cout<<endl<<"Podaj sprawnosc optyczna kolektora[%]: ";
+	cin>>no1;
+	no=no1/100;
+	cout<<endl<<"Natezenie promieniowania slonecznego [Wh/m^2]: ";
+	cin>>me;
+	pieczarka:
+	cout<<endl<<"Podaj temperature wyjsciowa[K]: ";
+	cin>>t1;
+	t=t1-10;
+	if(t<1)
+	{
+		cout<<"Temperatura musi byc wieksza od 11 stopni!"<<endl;
+		goto pieczarka;
+	}
+	else
+	cout<<endl<<"Podaj wspolczynnik strat liniowych: ";
+	cin>>k1;
+	cout<<endl<<"Podaj wspolczynnik strat nieliniowych: ";
+	cin>>k2;
+	system("cls");
+	cout<<"Moc jednostkowa kolektora wynosi: "<<s*((no*me)-(k1*t)-(k2*t*t))<<" [W]"<<endl;
+	cout << "kliknij enter aby kontynuowac..." <<endl;
+	getch();
+	system("cls");
+	break;
+	//KONIEC SPRAWNOSCI MODULOW
+	//WYKORZYSTANIE WZORY NA Q
+case (5):
+	//ZMIENNE
+	double m,cp,tz,q,tw,dt;
+	int alek;
+	//KONIEC ZMIENNYCH
+	cout<<"Podaj brakujaca wartosc:"<<endl;
+	cout<<"[1]Jezeli to jest'Q'"<<endl;
+	cout<<"[2]Jezeli to jest'm'"<<endl;
+	cout<<"[3]Jezeli to jest temp na wylocie"<<endl;
+	cout<<"[4]Jezeli to jest temp na wlocie"<<endl;
+	cin>>alek;
+	system("cls");
+	switch(alek)
+	{
+case(1):
+	cout<<"Podaj 'm'[kg]: ";cin>>m;cout<<endl;
+	lulek:
+	cout<<"Podaj temperature na wylocie[K]: ";cin>>tz;cout<<endl;
+	cout<<"Podaj temperature na wlocie[K]: ";cin>>tw;cout<<endl;
+	dt=tz-tw;
+	if(dt<11)
+	{
+		cout<<"Roznica temperatur musi wynosic 10 stopni"<<endl;
+		goto lulek;
+	}
+	else
+		q=m*1.16*dt;
+	system("cls");
+		cout<<"Q wynosi: "<<q<<"[W] = "<<m*1.16*dt/1000<<"[kW] = ";
+		cout <<m*4.1899*dt<<"[kJ]"<<endl;
+		cout<<"Kliknij enter aby kontynuowac...";
+	getch();
+	system("cls");
+	goto poczatek;
+	break;
+case(2):
+		cout<<"Podaj 'Q'[W]: ";cin>>q;cout<<endl;
+	lulek1:
+	cout<<"Podaj temperature na wylocie[K]: ";cin>>tz;cout<<endl;
+	cout<<"Podaj temperature na wlocie[K]: ";cin>>tw;cout<<endl;
+	dt=tz-tw;
+	if(dt<11)
+	{
+		cout<<"Roznica temperatur musi wynosic 10 stopni"<<endl;
+		goto lulek1;
+	}
+	else
+		system("cls");
+		cout<<"Masa wynosi: "<<q/(1.16*dt)<<"[kg]";
+		cout<<"Kliknij enter aby kontynuowac...";
+	getch();
+	system("cls");
+	goto poczatek;
+	break;
+case(3):
+	cout<<"Podaj 'Q'[W]: ";cin>>q;cout<<endl;
+	cout<<"Podaj 'm'[kg]: ";cin>>m;cout<<endl;
+	cout<<"Podaj temperature na wlocie[K]: ";cin>>tw;cout<<endl;
+	system("cls");
+	cout<<"Temperatura na wylocie wynosi: "<<(q/(m*1.16))+tw<<"[K]";
+	getch();
+	system("cls");
+	goto poczatek;
+	break;
+case(4):
+	cout<<"Podaj 'Q'[W]: ";cin>>q;cout<<endl;
+	cout<<"Podaj 'm'[kg]: ";cin>>m;cout<<endl;
+	cout<<"Podaj temperature na wylocie[K]: ";cin>>tz;cout<<endl;
+	system("cls");
+	cout<<"Temperatura na wylocie wynosi: "<<-(q/(m*1.16))+tz<<"[K]";
+
+	getch();
+	system("cls");
+	goto poczatek;
+	break;
+
+	getch();
+	system("cls");
+	break;
+	}
+	//KONIEC WYKORZYSTANIA WZORU NA Q
+default:
+	{
+	cin.clear();
+	cin.ignore(INT_MAX,'\n');
+	system("cls");
+	cout <<endl<<"Nieprawidlowe polecenie." <<endl<<"----------------------------------" <<endl;
+		 cout << "kliknij enter aby kontynuowac..." <<endl;
+	 getch() ;
+	 system("cls");
+	 goto poczatek;
+	}
+system ("pause");
+return 0;
+}
+}
+}
